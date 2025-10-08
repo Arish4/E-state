@@ -11,7 +11,7 @@ db();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173'], // frontend (Vite)
+  origin: ['https://resilient-souffle-b6032e.netlify.app'], // frontend (Vite)
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));

@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password, role) => {
     try {
-      const response = await fetch('http://localhost:4000/users/login', {
+      const response = await fetch('https://estate1-j8ba9vvz.b4a.run/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password, role) => {
     try {
-      const response = await fetch('http://localhost:4000/users/register', {
+      const response = await fetch('https://estate1-j8ba9vvz.b4a.run/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
