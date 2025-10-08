@@ -6,9 +6,6 @@ require('dotenv').config();
 
 const app = express();
 
-// Connect DB
-db();
-
 // Middleware
 app.use(cors({
   origin: ['https://resilient-souffle-b6032e.netlify.app'], // frontend (Vite)
@@ -27,8 +24,19 @@ const userRoutes = require('./routes/userRoute');
 app.use('/estates', estateRoutes);
 app.use('/users', userRoutes);
 
-// Server
+// Connect to DB and start server
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
-});
+
+async function startServer() {
+  try {
+    await db(); // ensure DB is connected before starting server
+    app.listen(PORT, () => {
+      console.log(`✅ Server is running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error('❌ Failed to connect to DB:', err);
+    process.exit(1); // exit process so deployment knows it failed
+  }
+}
+
+startServer();
