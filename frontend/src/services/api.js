@@ -1,5 +1,5 @@
 // API service for backend communication
-const API_BASE_URL = 'https://estate1-j8ba9vvz.b4a.run';
+const API_BASE_URL = 'https://estate1-5t3d8f42.b4a.run';
 
 class ApiService {
   constructor() {
