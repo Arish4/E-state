@@ -11,7 +11,8 @@ RUN npm install
 
 # Copy all backend files
 COPY backend/. .
-
+# Set environment variable
+ENV PORT=4000
 # Expose port
 EXPOSE 4000
 
