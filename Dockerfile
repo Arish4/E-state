@@ -1,20 +1,21 @@
+# Use Node 22
 FROM node:22-bullseye
 
-# Set working directory inside container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json from backend folder
+# Copy package files and install dependencies
 COPY backend/package*.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy all backend files
+# Copy the rest of the code
 COPY backend/. .
+
 # Set environment variable
 ENV PORT=4000
+
 # Expose port
 EXPOSE 4000
 
-# Start the app
+# Start server
 CMD ["node", "server.js"]
