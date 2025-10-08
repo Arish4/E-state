@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:22-bullseye
 
 # Set working directory inside container
 WORKDIR /app
